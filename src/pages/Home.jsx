@@ -1,7 +1,5 @@
 import Header from "../components/Header";
-import Input from "../components/Input";
-import Keyboard from "../components/Keyboard";
-import Button from "../components/Button";
+import Calculator from "../components/Calculator";
 
 export default function Home() {
   return (
@@ -10,12 +8,8 @@ export default function Home() {
         <section className="flex flex-col items-center justify-center gap-2 pb-6">
           <Header />
         </section>
-        <section className="p-5 rounded-lg bg-white">
-          <Input />
-          <Keyboard />
-          <Button format="large" color="dark">
-            calcular
-          </Button>
+        <section className="p-6 rounded-lg bg-white">
+          <Calculator />
         </section>
       </main>
     </>
