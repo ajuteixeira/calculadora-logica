@@ -1,7 +1,8 @@
-export default function Button({ onClick, color, format, text }) {
+export default function Button({ onClick, color, format, text, disabled = false }) {
   return (
     <button
       onClick={() => onClick(text)}
+      disabled={disabled}
       className={`
     ${
       color === "default" &&
@@ -15,6 +16,7 @@ export default function Button({ onClick, color, format, text }) {
     ${format === "default" && "w-[50px] h-[50px]"}
     ${format === "medium" && "w-[112px] h-[50px]"}
     ${format === "large" && "w-full h-[50px]"}
+    ${disabled &&  'cursor-not-allowed bg-[#cccccc] hover:bg-[#cccccc]'}
     `}
     >
       {text}
