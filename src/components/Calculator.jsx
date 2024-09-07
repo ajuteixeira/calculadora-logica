@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import ErrorMessage from "./ErrorMessage";
+import validateInput from "../utils/validateInput";
 
 export default function Calculator() {
   const [inputValue, setInputValue] = useState("");
@@ -15,8 +16,13 @@ export default function Calculator() {
     setInputValue((inputValue) => inputValue.slice(0, -1));
   };
 
+  const validInput = () => {
+    if (inputValue.length == 0) return true;
+    return validateInput(inputValue);
+  };
+
   useEffect(() => {
-    setError(true);
+    setError(!validInput());
   }, [inputValue]);
 
   return (
