@@ -3,6 +3,7 @@ import Button from "./Button";
 import Input from "./Input";
 import ErrorMessage from "./ErrorMessage";
 import validateInput from "../utils/validateInput";
+import call from "../utils/evaluator";
 
 export default function Calculator() {
   const [inputValue, setInputValue] = useState("");
@@ -22,6 +23,7 @@ export default function Calculator() {
   };
 
   useEffect(() => {
+    call(inputValue);
     setError(!validInput());
   }, [inputValue]);
 
