@@ -1,4 +1,4 @@
-export default function Input({ value }) {
+export default function Input({ value, error = false }) {
   return (
     <input
       type="text"
@@ -7,7 +7,7 @@ export default function Input({ value }) {
       id=""
       readOnly={true}
       placeholder="expressão lógica"
-      className="w-full h-[50px] p-3 outline-none bg-[#7927bd21]"
+      className={`w-full h-[50px] p-3 outline-none bg-[#7927bd21] ${error ? 'border-2 border-rose-400' : ''}`}
     />
   );
 }
