@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
 import Input from "./Input";
+import ErrorMessage from "./ErrorMessage";
 
 export default function Calculator() {
   const [inputValue, setInputValue] = useState("");
+  const [error, setError] = useState(false);
 
   const addToInput = (text) => {
     setInputValue((inputValue) => inputValue + text);
@@ -13,9 +15,14 @@ export default function Calculator() {
     setInputValue((inputValue) => inputValue.slice(0, -1));
   };
 
+  useEffect(() => {
+    setError(true);
+  }, [inputValue]);
+
   return (
     <>
-      <Input value={inputValue} />
+      <Input value={inputValue} error={error} />
+      <ErrorMessage error={error} />
       <div className="grid grid-cols-6 gap-4 pt-6">
         <Button
           onClick={addToInput}
@@ -101,6 +108,7 @@ export default function Calculator() {
             format="large"
             color="dark"
             text="calcular"
+            disabled={error}
           />
         </div>
         <div className="col-end-7 col-span-2 ...">
