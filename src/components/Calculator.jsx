@@ -23,7 +23,6 @@ export default function Calculator() {
   };
 
   useEffect(() => {
-    call(inputValue);
     setError(!validInput());
   }, [inputValue]);
 
@@ -112,7 +111,7 @@ export default function Calculator() {
         />
         <div className="col-end-5 col-span-4 ...">
           <Button
-            onClick={clearInput}
+            onClick={() => console.log(call(inputValue))}
             format="large"
             color="dark"
             text="calcular"
