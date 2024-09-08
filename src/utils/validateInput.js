@@ -2,7 +2,7 @@ const negative = "∼";
 const connectives = [negative, "∧", "∨", "→", "↔", "⊻"];
 
 export default function validateInput(input) {
-  return validInput(input.replace(" ", ""));
+  return validInput(input.replaceAll(" ", ""));
 }
 
 function validInput(input) {
