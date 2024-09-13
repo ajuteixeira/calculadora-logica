@@ -118,8 +118,11 @@ export default function Calculator() {
             disabled={error}
           />
         </div>
-        <div className="col-end-7 col-span-2 ...">
-          <Button onClick={clearInput} format="large" color="red" text="⌫" />
+        <div className="col-end-6 ">
+          <Button onClick={clearInput} format="default" color="red" text="CL" />
+        </div>
+        <div className="col-end-7">
+          <Button onClick={clearInput} format="default" color="red" text="⌫" />
         </div>
       </div>
     </>
