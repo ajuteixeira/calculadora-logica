@@ -17,6 +17,10 @@ export default function Calculator() {
     setInputValue((inputValue) => inputValue.slice(0, -1));
   };
 
+  const clearAllInput = () => {
+    setInputValue('');
+  };
+
   const validInput = () => {
     if (inputValue.length == 0) return true;
     return validateInput(inputValue);
@@ -119,7 +123,7 @@ export default function Calculator() {
           />
         </div>
         <div className="col-end-6 ">
-          <Button onClick={clearInput} format="default" color="red" text="CL" />
+          <Button onClick={clearAllInput} format="default" color="red" text="CL" />
         </div>
         <div className="col-end-7">
           <Button onClick={clearInput} format="default" color="red" text="⌫" />
