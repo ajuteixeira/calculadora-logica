@@ -119,7 +119,7 @@ export default function Calculator() {
           />
         </div>
         <div className="col-end-7 col-span-2 ...">
-          <Button onClick={clearInput} format="medium" color="red" text="⌫" />
+          <Button onClick={clearInput} format="large" color="red" text="⌫" />
         </div>
       </div>
     </>
