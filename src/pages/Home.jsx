@@ -4,7 +4,7 @@ import Calculator from "../components/Calculator";
 export default function Home() {
   return (
     <>
-      <main className="w-full h-[100vh] flex flex-col items-center justify-center bg-slate-100">
+      <main className="w-full py-20 flex flex-col items-center justify-start">
         <section className="flex flex-col items-center justify-center gap-2 pb-6">
           <Header />
         </section>
