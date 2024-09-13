@@ -1,5 +1,4 @@
-const negative = "∼";
-const connectives = [negative, "∧", "∨", "→", "↔", "⊻"];
+import { NEGATIVE as negative, CONNECTIVES as connectives } from "./constants.js";
 
 export default function validateInput(input) {
   return validInput(input.replaceAll(" ", ""));

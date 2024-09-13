@@ -1,6 +1,4 @@
-const negative = "∼";
-const connectives = [negative, "∧", "∨", "→", "↔", "⊻"];
-const formattedConnectives = ["(", ")", "!", "&&", "||", "^"];
+import { PARSED_CONNECTIVES as formattedConnectives } from "./constants.js";
 
 export default function call(input) {
   return buildTruthTable(reformatInput(input), input);
@@ -66,7 +64,7 @@ function parseConditional(input, index) {
   if (rightSide[rightSide.length - 1] == ")")
     rightSide = rightSide.substring(0, rightSide.length - 1);
 
-  const newExpression = `(!(${leftSide})||${rightSide})`;
+  const newExpression = `(!(${leftSide})||(${rightSide}))`;
 
   return (
     input.substring(0, startingIndex) +
