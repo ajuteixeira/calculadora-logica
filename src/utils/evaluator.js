@@ -28,8 +28,15 @@ function reformatInput(input) {
 
   let initialParse = newInput.join("");
 
+  console.log(initialParse);
+
   while (initialParse.indexOf("→") > 0) {
     initialParse = parseConditional(initialParse, initialParse.indexOf("→"));
+    console.log(initialParse);
+  }
+
+  while (initialParse.indexOf("↔") > 0) {
+    initialParse = parseBiconditional(initialParse, initialParse.indexOf("↔"));
     console.log(initialParse);
   }
 
@@ -65,6 +72,27 @@ function parseConditional(input, index) {
     rightSide = rightSide.substring(0, rightSide.length - 1);
 
   const newExpression = `(!(${leftSide})||(${rightSide}))`;
+
+  return (
+    input.substring(0, startingIndex) +
+    newExpression +
+    input.substring(endingIndex + 1)
+  );
+}
+
+function parseBiconditional(input, index) {
+  let [leftSide, startingIndex] = fetchLeftSide(input, index);
+  let [rightSide, endingIndex] = fetchRightSide(input, index);
+
+  if (leftSide[0] == "(") leftSide = leftSide.substring(1);
+  if (leftSide[leftSide.length - 1] == ")")
+    leftSide = leftSide.substring(0, leftSide.length - 1);
+
+  if (rightSide[0] == "(") rightSide = rightSide.substring(1);
+  if (rightSide[rightSide.length - 1] == ")")
+    rightSide = rightSide.substring(0, rightSide.length - 1);
+
+  const newExpression = `(!((${leftSide})^(${rightSide})))`;
 
   return (
     input.substring(0, startingIndex) +
