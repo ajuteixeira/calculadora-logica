@@ -34,7 +34,7 @@ export default function Calculator() {
     <>
       <Input value={inputValue} error={error} />
       <ErrorMessage error={error} />
-      <div className="grid grid-cols-6 gap-4 pt-6">
+      <div className="grid grid-cols-6 gap-4 pt-3">
         <Button
           onClick={addToInput}
           format="default"
