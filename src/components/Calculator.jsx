@@ -5,9 +5,13 @@ import ErrorMessage from "./ErrorMessage";
 import validateInput from "../utils/validateInput";
 import call from "../utils/evaluator";
 
-export default function Calculator() {
+export default function Calculator({ onCalculate }) {
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
+
+  const handleCalculate = (value) => {
+    onCalculate?.(value);
+  };
 
   const addToInput = (text) => {
     setInputValue((inputValue) => inputValue + text);
@@ -15,10 +19,12 @@ export default function Calculator() {
 
   const clearInput = () => {
     setInputValue((inputValue) => inputValue.slice(0, -1));
+    handleCalculate({});
   };
 
   const clearAllInput = () => {
-    setInputValue('');
+    setInputValue("");
+    handleCalculate({});
   };
 
   const validInput = () => {
@@ -115,7 +121,7 @@ export default function Calculator() {
         />
         <div className="col-end-5 col-span-4 ...">
           <Button
-            onClick={() => console.log(call(inputValue))}
+            onClick={() => handleCalculate(call(inputValue))}
             format="large"
             color="dark"
             text="calcular"
@@ -123,7 +129,12 @@ export default function Calculator() {
           />
         </div>
         <div className="col-end-6 ">
-          <Button onClick={clearAllInput} format="default" color="red" text="CL" />
+          <Button
+            onClick={clearAllInput}
+            format="default"
+            color="red"
+            text="CL"
+          />
         </div>
         <div className="col-end-7">
           <Button onClick={clearInput} format="default" color="red" text="⌫" />

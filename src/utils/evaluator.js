@@ -162,14 +162,14 @@ function buildTruthTable(input, originalInput) {
       let keyString = key;
       keyString = keyString.replaceAll("0", "F");
       keyString = keyString.replaceAll("false", "F");
-      keyString = keyString.replaceAll("1", "T");
-      keyString = keyString.replaceAll("true", "T");
+      keyString = keyString.replaceAll("1", "V");
+      keyString = keyString.replaceAll("true", "V");
 
       let valString = val.toString();
       valString = valString.replaceAll("0", "F");
       valString = valString.replaceAll("false", "F");
-      valString = valString.replaceAll("1", "T");
-      valString = valString.replaceAll("true", "T");
+      valString = valString.replaceAll("1", "V");
+      valString = valString.replaceAll("true", "V");
 
       readableTruthTable[keyString] = valString;
     });
