@@ -4,6 +4,7 @@ Projeto desenvolvido para a disciplina de Res. Problemas de Natureza Discreta em
 ## Tecnologias utilizadas
 * React
 * Vite
+* Tailwind
 * JavaScript
 
 ## Pré-visualização
